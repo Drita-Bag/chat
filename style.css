@@ -1,0 +1,23 @@
+#chat {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.time, .nickname, .message {
+    display: inline-block;
+}
+
+.time {
+    color:gray;
+    font-style: italic;
+}
+
+.nickname{
+    margin: 0 5px;
+    color: blue;
+    font-weight: bold;
+}
+
+.line:nth-child(2n) {
+    background: #eee;
+}
