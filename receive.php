@@ -1,7 +1,7 @@
 <?php
 
 $filename = 'chat/messages.txt';
-$last = (int) $_GET['last'] ?? 0;
+$last = $_GET['last'] != null ? (int) $_GET['last'] : 0;
 
 if (!file_exists($filename)) {
     $message = ["who"=>"Drita", "what"=>"Vous discutez dans un sac, dites quelque chose !"];
@@ -10,9 +10,9 @@ if (!file_exists($filename)) {
 
 $messages = [];
 
-$waiting = 30;
+$waiting = 10;
 // même si sleep n'est pas pris en compte.
-set_time_limit($waiting);
+set_time_limit($waiting + 1);
 
 // Lecture des lignes...
 while ($waiting > 0) {
