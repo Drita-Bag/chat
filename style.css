@@ -3,9 +3,10 @@
 }
 
 body {
-    align-items: center;
+    align-items: stretch;
     display: flex;
     flex-direction: column;
+    font-family: sans-serif;
     font-size: 24pt;
     height: 100vh;
     margin: 0;
@@ -41,9 +42,17 @@ h1 {
 }
 
 .nickname {
-    color: blue;
+    color: #db6152;
     font-weight: bold;
     margin: 0 5px;
+}
+
+.nickname:before {
+    content: '<';
+}
+
+.nickname:after {
+    content: '>';
 }
 
 .line:nth-child(2n) {
@@ -58,6 +67,7 @@ h1 {
 
 .horizontal input {
     flex-grow: 1;
+    width: 10px;
 }
 
 .horizontal button {
