@@ -5,7 +5,7 @@ $(function() {
             $('#send').click()
         }
     })
-    $('#send').click(function() {
+    $('#send').click(function(event) {
         const message = $('#message').val()
         const nickname = $('#nickname').val()
         if ($.trim(message) != '' && $.trim(nickname) != '') {
@@ -13,7 +13,6 @@ $(function() {
                 nickname: nickname,
                 message: message
             }, function() {
-                receive()
                 setTimeout(function() {
                     $('#chat').scrollTop($(
                         '#chat')[0].scrollHeight)
@@ -21,38 +20,37 @@ $(function() {
             })
             $('#message').val('')
         }
+
+        event.stopPropagation()
+        event.preventDefault()
     })
 
-    setInterval(receive, 1000)
+    receive(0)
 })
 
-const receive = function() {
-    $.get('receive.php', function(data) {
-        const scroll = $('#chat').scrollTop() + $('#chat').height() >=
-            $('#chat')[0].scrollHeight;
+const receive = function(last) {
+    $.getJSON('receive.php?last=' + last)
+        .then(function(data) {
+            $.each(data.messages, function(id, message) {
+                const coloredLine =
+                    '<div class="line"><div class="time">' +
+                    message.when +
+                    '</div><div class="nickname">' +
+                    message.who +
+                    '</div><div class="message">' +
+                    message.what +
+                    '</div></div>'
 
-        data = JSON.parse(data)
-        $('#chat').text('')
-        $.each(data, function(id) {
-            let line = data[id]
-            if (line.match(/(\(.*\))(\[.*\])(.*)/)) {
-                const coloredLine = line.replace(
-                    /(\([^)]*\))(\[.*\])(.*)/,
-                    '<div class="line"><div class="time">$1</div><div class="nickname">$2</div><div class="message">$3</div></div>'
-                )
                 $('#chat').append(coloredLine)
-            } else {
-                $('#chat').append(
-                    $(
-                        '<div>', {
-                            text: line
-                        }))
-            }
+            })
+            // Petit délai de gentillesse.
+            setTimeout(function(){
+                receive(data.last)
+            }, Math.random() * 1000);
         })
-        if (scroll) {
-            $('#chat').scrollTop($('#chat')[0].scrollHeight)
-        }
-    })
+        .catch(function() {
+            receive(last)
+        })
 }
 
 const coloring = function(match, time, nickname, message) {

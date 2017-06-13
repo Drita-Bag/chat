@@ -1,26 +1,17 @@
 <!DOCTYPE html>
-<html>
-
-<head>
+<html lang=fr>
+  <head>
     <meta charset="utf-8">
-    <title>Discuttez dans mon sac !</title>
+    <title>Discutez dans mon sac !</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+    <form>
+      <input id="nickname" placeholder="Pseudo">
+      <div id="chat"></div>
+      <input id="message" placeholder="Message"><button type=submit id="send">Envoyer</button>
+    </form>
     <script src="jquery-3.2.1.min.js"></script>
     <script src="chat.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
-
-<body>
-    <div id="header">
-        <img id="logo" src="logo.png">
-        <h1>Discuttez dans mon sac</h1></div>
-    <div id="chat"></div>
-    <div class="horizontal">
-        <input id="nickname" placeholder="Pseudo">
-        <div> dit :</div>
-        <input id="message" placeholder="Message">
-        <button id="send">Envoyer</button>
-    </div>
-</body>
-
+  </body>
 </html>
