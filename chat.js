@@ -28,6 +28,9 @@ $(function() {
 
 const receive = function() {
     $.get('receive.php', function(data) {
+        const scroll = $('#chat').scrollTop() + $('#chat').height() >=
+            $('#chat')[0].scrollHeight;
+
         data = JSON.parse(data)
         $('#chat').text('')
         $.each(data, function(id) {
@@ -46,6 +49,9 @@ const receive = function() {
                         }))
             }
         })
+        if (scroll) {
+            $('#chat').scrollTop($('#chat')[0].scrollHeight)
+        }
     })
 }
 
