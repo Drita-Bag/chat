@@ -1,6 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    max-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    height: 32px;
+    width: 32px;
+}
+
 #chat {
-    max-height: 500px;
     overflow: auto;
+    margin: 0 20px;
 }
 
 .time, .nickname, .message {
@@ -8,11 +28,11 @@
 }
 
 .time {
-    color:gray;
+    color: gray;
     font-style: italic;
 }
 
-.nickname{
+.nickname {
     margin: 0 5px;
     color: blue;
     font-weight: bold;
@@ -20,4 +40,8 @@
 
 .line:nth-child(2n) {
     background: #eee;
+}
+
+.horizontal {
+    display: flex;
 }
