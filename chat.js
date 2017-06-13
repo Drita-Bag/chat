@@ -32,7 +32,7 @@ const receive = function(last) {
     $.getJSON('receive.php?last=' + last)
         .then(function(data) {
             $.each(data.messages, function(id, message) {
-                    const coloredLine =
+                    const coloredLine = '<div class="line">' +
                         '<div class="nickname">' +
                         message.who +
                         '</div><div class="message">' +
