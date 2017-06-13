@@ -25,7 +25,10 @@ while ($waiting > 0) {
     fseek($handle, $last);
 
     while(($line = fgets($handle, 4096)) !== false) {
-        $messages[] = json_decode($line);
+        $message = json_decode($line);
+        $message->who = htmlspecialchars($message->who);
+        $message->what = htmlspecialchars($message->what);
+        $messages[] = $message;
     }
 
     // S'il y a eu des messages, on quitte.
