@@ -33,9 +33,7 @@ const receive = function(last) {
         .then(function(data) {
             $.each(data.messages, function(id, message) {
                     const coloredLine =
-                        '<div class="line"><div class="time">' +
-                        message.when +
-                        '</div><div class="nickname">' +
+                        '<div class="nickname">' +
                         message.who +
                         '</div><div class="message">' +
                         message.what +

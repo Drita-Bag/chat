@@ -4,7 +4,7 @@ $filename = 'chat/messages.txt';
 $last = (int) $_GET['last'] ?? 0;
 
 if (!file_exists($filename)) {
-    $message = ["when" => "Maintenant", "who"=>"Drita", "what"=>"Vous discutez dans un sac, dites quelque chose !"];
+    $message = ["who"=>"Drita", "what"=>"Vous discutez dans un sac, dites quelque chose !"];
     file_put_contents($filename, [json_encode($message), "\n"]);
 }
 
