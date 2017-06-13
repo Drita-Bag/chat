@@ -1,27 +1,33 @@
 body {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-height: 100vh;
-    padding: 0;
+    font-size: 24pt;
+    height: 100vh;
     margin: 0;
+    padding: 0;
 }
 
 #header {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 #logo {
-    height: 32px;
-    width: 32px;
+    height: 128px;
+    width: 128px;
+}
+
+h1 {
+    font-size: 36pt;
 }
 
 #chat {
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    flex-grow: 1;
     margin: 0 20px;
+    overflow: auto;
 }
 
 .nickname, .message {
@@ -29,9 +35,9 @@ body {
 }
 
 .nickname {
-    margin: 0 5px;
     color: blue;
     font-weight: bold;
+    margin: 0 5px;
 }
 
 .line:nth-child(2n) {
@@ -40,4 +46,17 @@ body {
 
 .horizontal {
     display: flex;
+    width: 100vw;
+}
+
+.horizontal input {
+    flex-grow: 1;
+}
+.horizontal button {
+    width: 50px;
+}
+
+input, button {
+    font-size: 24pt;
+    width: 100%;
 }
