@@ -35,10 +35,10 @@ const receive = function() {
         $('#chat').text('')
         $.each(data, function(id) {
             let line = data[id]
-            if (line.match(/(\(.*\))(\[.*\])(.*)/)) {
+            if (line.match(/(\[.*\])(.*)/)) {
                 const coloredLine = line.replace(
-                    /(\([^)]*\))(\[.*\])(.*)/,
-                    '<div class="line"><div class="time">$1</div><div class="nickname">$2</div><div class="message">$3</div></div>'
+                    /(\[.*\])(.*)/,
+                    '<div class="line"><div class="nickname">$1</div><div class="message">$2</div></div>'
                 )
                 $('#chat').append(coloredLine)
             } else {

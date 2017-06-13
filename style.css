@@ -23,13 +23,8 @@ body {
     margin: 0 20px;
 }
 
-.time, .nickname, .message {
+.nickname, .message {
     display: inline-block;
-}
-
-.time {
-    color: gray;
-    font-style: italic;
 }
 
 .nickname {
